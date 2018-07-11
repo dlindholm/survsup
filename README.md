@@ -1,4 +1,4 @@
-# survsup <img src="icons/survsup_icon.png" align="right" width="15%" height="15%"" />
+# survsup <img src="icons/survsup_icon.png" align="right" width="15%" height="15%" />
 
 This is a package for R that provides functionality to plot beautiful survival curves (with numbers at risk table).
 Based upon the ggplot2 package, it provides large flexibility, yet a straightforward and easy syntax. It is under
