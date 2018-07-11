@@ -6,7 +6,7 @@ development. Please report any issues.
 
 Install the package like this:
 
-´´´r
+```r
 install.packages("devtools") # Can be omitted if already installed
 devtools::install_github("dlindholm/survsup")
 ```
