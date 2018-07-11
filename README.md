@@ -4,6 +4,12 @@ This is a package for R that provides functionality to plot beautiful survival c
 Based upon the ggplot2 package, it provides large flexibility, yet a straightforward and easy syntax. It is under
 development. Please report any issues. 
 
+An example: 
+
+![](example.png)<!-- -->
+
+
+
 Install the package like this:
 
 ```r
