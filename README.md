@@ -14,7 +14,11 @@ Install the package like this:
 
 ```r
 install.packages("devtools") # Can be omitted if already installed
-devtools::install_github("dlindholm/survsup")
+devtools::install_github("dlindholm/survsup", build_vignettes = TRUE)
 ```
 
 For detailed instructions on how to use the package, please refer to the Vignette.
+```r
+library(survsup)
+vignette("survsup_intro")
+```
