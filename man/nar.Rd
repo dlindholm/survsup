@@ -51,3 +51,6 @@ flchain \%>\%
    plot_survfit(cuminc = FALSE) \%>\% 
    nar(flip = TRUE)
 }
+\author{
+Daniel Lindholm
+}

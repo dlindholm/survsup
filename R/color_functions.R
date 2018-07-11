@@ -8,7 +8,8 @@
 #' @param reverse should the order of the colors be reversed?
 #' 
 #' @return Returns a ggplot object
-#' 
+#' @export
+#' @author Daniel Lindholm  
 #' @examples
 #' veteran %>% 
 #'     survfit(Surv(time, status) ~ celltype, data = .) %>% 
@@ -29,9 +30,9 @@ skislopes <- function(g, reverse = FALSE){
 #' 
 #' @param g ggplot object containing a Kaplan-Meier plot
 #' @param reverse should the order of the colors be reversed?
-#' 
 #' @return Returns a ggplot object
-#' 
+#' @export
+#' @author Daniel Lindholm  
 #' @examples
 #' veteran %>% 
 #'     survfit(Surv(time, status) ~ celltype, data = .) %>% 
@@ -59,7 +60,8 @@ cat4 <- function(g, reverse = FALSE){
 #' @param end the hue at which the rainbow ends
 #' 
 #' @return Returns a ggplot object
-#' 
+#' @export
+#' @author Daniel Lindholm  
 #' @examples
 #' veteran %>% 
 #'     survfit(Surv(time, status) ~ celltype, data = .) %>% 

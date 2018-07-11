@@ -16,6 +16,9 @@
 #' @param sep_color which color should we use for that line?
 #' @return Returns a ggplot object
 #' 
+#' @export
+#' @author Daniel Lindholm 
+
 #' @examples
 #' retinopathy %>% 
 #'     survfit(Surv(futime, status) ~ trt, data = .) %>% 

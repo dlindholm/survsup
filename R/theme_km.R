@@ -6,6 +6,7 @@
 #' @param base_family base font family
 #' @param base_line_size base size for line elements
 #' @param base_rect_size base size for rect elements
+#' @export
 #' @examples
 #' p <- ggplot(mtcars) + geom_point(aes(x = wt, y = mpg,
 #'     colour = factor(gear))) + facet_wrap(~am)

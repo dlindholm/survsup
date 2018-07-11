@@ -25,3 +25,6 @@ veteran \%>\%
    plot_survfit(cuminc = FALSE) \%>\% 
    skislopes(reverse = TRUE)
 }
+\author{
+Daniel Lindholm
+}

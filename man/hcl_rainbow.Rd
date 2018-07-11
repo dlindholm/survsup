@@ -35,3 +35,6 @@ veteran \%>\%
    plot_survfit(cuminc = FALSE) \%>\% 
    hcl_rainbow()
 }
+\author{
+Daniel Lindholm
+}

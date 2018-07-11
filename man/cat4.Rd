@@ -25,3 +25,6 @@ veteran \%>\%
    plot_survfit(cuminc = FALSE) \%>\% 
    cat4(reverse = TRUE)
 }
+\author{
+Daniel Lindholm
+}

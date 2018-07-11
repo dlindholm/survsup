@@ -20,7 +20,9 @@
 #'     "left", "right"
 #' 
 #' @return Returns a ggplot object
-#' 
+#'
+#' @export
+#' @author Daniel Lindholm 
 #' @examples
 #' retinopathy %>% 
 #'     survfit(Surv(futime, status) ~ trt, data = .) %>% 

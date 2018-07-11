@@ -65,3 +65,6 @@ mgus2 \%>\%
      	y = "Survival (\%)",
      	caption = "(This is a demo)")
 }
+\author{
+Daniel Lindholm
+}
