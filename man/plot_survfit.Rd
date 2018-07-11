@@ -4,7 +4,7 @@
 \alias{plot_survfit}
 \title{Plot a survfit object}
 \usage{
-plot_survfit(fit, lwd = 1, xmax = NULL, x_breaks = NULL, ylim = NULL,
+plot_survfit(fit, lwd = 1, xmax = NULL, xbreaks = NULL, ylim = NULL,
   ci = FALSE, cuminc = TRUE, y_percent = TRUE,
   split_legend_labels = TRUE, legend.title = NA, legend.position = "top")
 }
@@ -15,7 +15,7 @@ plot_survfit(fit, lwd = 1, xmax = NULL, x_breaks = NULL, ylim = NULL,
 
 \item{xmax}{What is the upper limit of the X axis? The default will plot all data.}
 
-\item{x_breaks}{A numeric vector. Where should the breaks in the X axis be? The default will give ggplot's 
+\item{xbreaks}{A numeric vector. Where should the breaks in the X axis be? The default will give ggplot's 
 default breaks.}
 
 \item{ylim}{A numeric vector of length 2. Which are the Y axis limits?}

@@ -32,6 +32,7 @@ Let's start with the most basic thing, plotting a plain old Kaplan-Meier curve:
 
 ```{r, fig.height=6, fig.width=6}
 library(survsup)
+library(ggplot2)
 library(survival)
 library(dplyr)
 
