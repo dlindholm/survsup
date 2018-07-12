@@ -22,6 +22,14 @@
 #' @return Returns a ggplot object
 #'
 #' @export
+#' @importFrom ggplot2 ggplot
+#' @importFrom ggplot2 aes
+#' @importFrom ggplot2 geom_step
+#' @importFrom ggplot2 geom_ribbon
+#' @importFrom ggplot2 scale_x_continuous
+#' @importFrom ggplot2 scale_y_continuous
+#' @importFrom ggplot2 theme
+#'  
 #' @author Daniel Lindholm 
 #' @examples
 #' 

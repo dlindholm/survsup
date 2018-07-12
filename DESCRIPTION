@@ -6,7 +6,8 @@ Description: This package implements functions to plot Kaplan-Meier curves. It
     provides the capability to add numbers at risk tables, allows for using the
     pipe operator to create complex plots, and allows for customization, and a
     useful workflow for creating multiple plots within your project. 
-Depends: R (>= 3.3.0)
+Depends: R (>= 3.3.0),
+    dplyr
 License: MIT + file LICENSE
 Encoding: UTF-8
 URL: http://github.com/dlindholm/survsup
