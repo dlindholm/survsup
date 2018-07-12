@@ -20,6 +20,7 @@ theme_km(base_size = 11, base_family = "", base_line_size = base_size/22,
 Custom theme, based upon the theme_bw theme in ggplot2
 }
 \examples{
+library(survsup); library(ggplot2)
 p <- ggplot(mtcars) + geom_point(aes(x = wt, y = mpg,
     colour = factor(gear))) + facet_wrap(~am)
 

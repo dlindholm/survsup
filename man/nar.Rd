@@ -4,16 +4,26 @@
 \alias{nar}
 \title{Add a numbers at risk table to a Kaplan-Meier plot}
 \usage{
-nar(g, size = NA, y_offset = 0.05, flip = FALSE, separator = TRUE,
-  sep_lwd = 0.2, sep_color = "grey70")
+nar(g, size = NA, x_offset = 0.02, y_offset = 0.05,
+  forced_height = NULL, flip = FALSE, separator = TRUE, sep_lwd = 0.2,
+  sep_color = "grey70")
 }
 \arguments{
 \item{g}{a ggplot object to which a numbers at risk table should be added.}
 
 \item{size}{a numeric value indicating the font size of the NAR table}
 
+\item{x_offset}{a constant indicating how much padding should be placed to the
+left of the NAR table (a multiple of the plot size in the X dimension)}
+
 \item{y_offset}{a constant indicating how much each line in the NAR table
 should be offset (as a multiple of both the plotting space size and the row number)}
+
+\item{forced_height}{a constant that, if provided, will force the NAR table
+to be of a certain height. This represents a multiple of the plot size in the
+Y dimension. This overrides the y_offset setting. Useful when you wish to plot
+multiple plots along side each other where the number of strata differs, as this
+setting will ensure that the sizes of the NAR tables are constant.}
 
 \item{flip}{a logical scalar indicating wheter the order in rows of the NAR table
 should be flipped or not.}
@@ -34,13 +44,15 @@ the plot_survfit function. It will add a table in the lower part of
 the plot, with numbers where the X axis tick marks are situated.
 }
 \examples{
+library(survsup); library(ggplot2); library(dplyr); library(survival)
+
 retinopathy \%>\% 
     survfit(Surv(futime, status) ~ trt, data = .) \%>\% 
    plot_survfit() \%>\% 
 	   nar()
 
 # Without table flip:
-#' flchain \%>\% 
+flchain \%>\% 
     survfit(Surv(futime, death) ~ sex, data = .) \%>\% 
    plot_survfit(cuminc = FALSE) \%>\% 
    nar()

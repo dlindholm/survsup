@@ -34,7 +34,7 @@ for each stratum?}
 was used; otherwise it will take the value "strata"}
 
 \item{legend.position}{Where should the legend be drawn? Possible answers are: "top", "bottom",
-"left", "right"}
+"left", "right"; or if you want to skip putting a legend on the plot: "none"}
 }
 \value{
 Returns a ggplot object
@@ -43,6 +43,9 @@ Returns a ggplot object
 Creates a Kaplan-Meier plot based on a survfit object
 }
 \examples{
+
+library(survsup); library(ggplot2); library(dplyr); library(survival)
+
 retinopathy \%>\% 
     survfit(Surv(futime, status) ~ trt, data = .) \%>\% 
    plot_survfit()
