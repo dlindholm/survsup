@@ -17,13 +17,16 @@
 #' @param legend.title What title should the legend have? By default it will take the value that was split if split_legend_labels
 #'     was used; otherwise it will take the value "strata"
 #' @param legend.position Where should the legend be drawn? Possible answers are: "top", "bottom",
-#'     "left", "right"
+#'     "left", "right"; or if you want to skip putting a legend on the plot: "none"
 #' 
 #' @return Returns a ggplot object
 #'
 #' @export
 #' @author Daniel Lindholm 
 #' @examples
+#' 
+#' library(survsup); library(ggplot2); library(dplyr); library(survival)
+#' 
 #' retinopathy %>% 
 #'     survfit(Surv(futime, status) ~ trt, data = .) %>% 
 #'	   plot_survfit()
@@ -55,7 +58,7 @@ plot_survfit <- function(fit, lwd = 1, xmax = NULL, xbreaks = NULL, ylim = NULL,
 	stopifnot(is.logical(ci))
 	stopifnot(is.logical(y_percent))
 	stopifnot(is.logical(split_legend_labels))
-	stopifnot(legend.position %in% c("top", "bottom", "left", "right"))
+	stopifnot(legend.position %in% c("top", "bottom", "left", "right", "none"))
 	
 	#Tidy fit to clean data.frame
 	tidy_fit <- broom::tidy(fit)
@@ -177,7 +180,11 @@ plot_survfit <- function(fit, lwd = 1, xmax = NULL, xbreaks = NULL, ylim = NULL,
 		res <- res + ylim(ylim)
 	}	
 
+
+	# Put legend where desired
+	res <- res + theme_km() + theme(legend.position = legend.position)
+
 	#Return results
-	return(res + theme_km() + theme(legend.position = legend.position))
+	return(res)
 
 }
