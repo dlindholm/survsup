@@ -7,7 +7,8 @@ Description: This package implements functions to plot Kaplan-Meier curves. It
     pipe operator to create complex plots, and allows for customization, and a
     useful workflow for creating multiple plots within your project. 
 Depends: R (>= 3.3.0),
-    dplyr
+    dplyr,
+    ggplot2
 License: MIT + file LICENSE
 Encoding: UTF-8
 URL: http://github.com/dlindholm/survsup
