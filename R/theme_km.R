@@ -8,6 +8,7 @@
 #' @param base_rect_size base size for rect elements
 #' @export
 #' @examples
+#' library(survsup); library(ggplot2)
 #' p <- ggplot(mtcars) + geom_point(aes(x = wt, y = mpg,
 #'     colour = factor(gear))) + facet_wrap(~am)
 #' 

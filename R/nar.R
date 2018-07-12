@@ -27,6 +27,8 @@
 #' @author Daniel Lindholm 
 
 #' @examples
+#' library(survsup); library(ggplot2); library(dplyr); library(survival)
+#' 
 #' retinopathy %>% 
 #'     survfit(Surv(futime, status) ~ trt, data = .) %>% 
 #'	   plot_survfit() %>% 
