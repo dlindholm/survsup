@@ -4,8 +4,7 @@ Version: 0.0.0.9000
 Authors@R: person("Daniel", "Lindholm", email = "daniel.lindholm@me.com", role = c("aut", "cre"))
 Description: This package implements functions to plot Kaplan-Meier curves. It
     provides the capability to add numbers at risk tables, allows for using the
-    pipe operator to create complex plots, and allows for customization, and a
-    useful workflow for creating multiple plots within your project. 
+    pipe operator to create more complex plots. 
 Depends: R (>= 3.3.0),
     dplyr,
     ggplot2
