@@ -20,6 +20,7 @@ four colors: Green, blue, red, and black; i.e.
 as ski slopes are classified.
 }
 \examples{
+library(survival)
 veteran \%>\% 
     survfit(Surv(time, status) ~ celltype, data = .) \%>\% 
    plot_survfit(cuminc = FALSE) \%>\% 

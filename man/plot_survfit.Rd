@@ -58,7 +58,7 @@ retinopathy \%>\%
 # you can tweak as you wish
 # (in this case with multiple labels): 
 mgus2 \%>\% 
-     survfit(Surv(futime, death) ~ sex, data = .) \%>\% 
+     survfit(Surv(futime, death) ~ sex, data = .) \%>\% 
      plot_survfit(cuminc = FALSE) \%>\%
      nar(flip = TRUE) \%>\% 
      hcl_rainbow()+  # <--- Notice + sign here!

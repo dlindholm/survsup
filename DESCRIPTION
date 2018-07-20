@@ -1,13 +1,11 @@
 Package: survsup
-Title: Plotting survival curves with numbers at risk table
-Version: 0.0.0.9000
+Title: Plotting Survival Curves with Numbers at Risk Table
+Version: 0.0.1
 Authors@R: person("Daniel", "Lindholm", email = "daniel.lindholm@me.com", role = c("aut", "cre"))
 Description: This package implements functions to plot Kaplan-Meier curves. It
     provides the capability to add numbers at risk tables, allows for using the
     pipe operator to create more complex plots. 
-Depends: R (>= 3.3.0),
-    dplyr,
-    ggplot2
+Depends: R (>= 3.3.0)
 License: MIT + file LICENSE
 Encoding: UTF-8
 URL: http://github.com/dlindholm/survsup

@@ -7,6 +7,7 @@
 #' @param base_line_size base size for line elements
 #' @param base_rect_size base size for rect elements
 #' @export
+#' @importFrom ggplot2 theme_grey theme %+replace% element_rect
 #' @examples
 #' library(survsup); library(ggplot2)
 #' p <- ggplot(mtcars) + geom_point(aes(x = wt, y = mpg,

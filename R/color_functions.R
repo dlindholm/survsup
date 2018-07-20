@@ -9,8 +9,10 @@
 #' 
 #' @return Returns a ggplot object
 #' @export
+#' @importFrom ggplot2 scale_color_manual
 #' @author Daniel Lindholm  
 #' @examples
+#' library(survival)
 #' veteran %>% 
 #'     survfit(Surv(time, status) ~ celltype, data = .) %>% 
 #'	   plot_survfit(cuminc = FALSE) %>% 
@@ -32,8 +34,10 @@ skislopes <- function(g, reverse = FALSE){
 #' @param reverse should the order of the colors be reversed?
 #' @return Returns a ggplot object
 #' @export
+#' @importFrom ggplot2 scale_color_manual 
 #' @author Daniel Lindholm  
 #' @examples
+#' library(survival)
 #' veteran %>% 
 #'     survfit(Surv(time, status) ~ celltype, data = .) %>% 
 #'	   plot_survfit(cuminc = FALSE) %>% 
@@ -61,8 +65,11 @@ cat4 <- function(g, reverse = FALSE){
 #' 
 #' @return Returns a ggplot object
 #' @export
+#' @importFrom colorspace rainbow_hcl
+#' @importFrom ggplot2 scale_color_manual 
 #' @author Daniel Lindholm  
 #' @examples
+#' library(survival)
 #' veteran %>% 
 #'     survfit(Surv(time, status) ~ celltype, data = .) %>% 
 #'	   plot_survfit(cuminc = FALSE) %>% 

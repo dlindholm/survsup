@@ -20,15 +20,10 @@
 #'     "left", "right"; or if you want to skip putting a legend on the plot: "none"
 #' 
 #' @return Returns a ggplot object
-#'
+#' @importFrom ggplot2 ggplot aes geom_ribbon geom_step guides scale_x_continuous ylim theme
+#' @importFrom dplyr bind_rows %>% mutate 
 #' @export
-#' @importFrom ggplot2 ggplot
-#' @importFrom ggplot2 aes
-#' @importFrom ggplot2 geom_step
-#' @importFrom ggplot2 geom_ribbon
-#' @importFrom ggplot2 scale_x_continuous
-#' @importFrom ggplot2 scale_y_continuous
-#' @importFrom ggplot2 theme
+
 #'  
 #' @author Daniel Lindholm 
 #' @examples
@@ -47,7 +42,7 @@
 #' # you can tweak as you wish
 #' # (in this case with multiple labels): 
 #' mgus2 %>% 
-#'      survfit(Surv(futime, death) ~ sex, data = .) %>% 
+#'      survfit(Surv(futime, death) ~ sex, data = .) %>% 
 #'      plot_survfit(cuminc = FALSE) %>%
 #'      nar(flip = TRUE) %>% 
 #'      hcl_rainbow()+  # <--- Notice + sign here!
@@ -56,6 +51,8 @@
 #'      	x = "Time (days)",
 #'      	y = "Survival (%)",
 #'      	caption = "(This is a demo)")
+ 
+
 
 plot_survfit <- function(fit, lwd = 1, xmax = NULL, xbreaks = NULL, ylim = NULL, ci = FALSE, cuminc = TRUE, y_percent = TRUE,
 	split_legend_labels = TRUE, legend.title = NA, legend.position="top"){

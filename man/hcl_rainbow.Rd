@@ -30,6 +30,7 @@ The function will detect how many strata are available and
 will pick that many colors from rainbow_hcl.
 }
 \examples{
+library(survival)
 veteran \%>\% 
     survfit(Surv(time, status) ~ celltype, data = .) \%>\% 
    plot_survfit(cuminc = FALSE) \%>\% 

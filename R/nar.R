@@ -24,6 +24,8 @@
 #' @return Returns a ggplot object
 #' 
 #' @export
+#' @importFrom ggplot2 ggplot_build geom_text geom_hline scale_x_continuous scale_y_continuous
+#' @importFrom dplyr %>% group_by mutate filter arrange slice ungroup select desc
 #' @author Daniel Lindholm 
 
 #' @examples
