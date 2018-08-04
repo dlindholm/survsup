@@ -24,16 +24,17 @@ hcl_rainbow(g, reverse = FALSE, c = 50, l = 70, start = 0, end = 360 *
 Returns a ggplot object
 }
 \description{
-Convenience function to change the color scheme to 
+Convenience function to change the color scheme to
 the rainbow_hcl scheme provided by the colorspace package.
-The function will detect how many strata are available and 
+The function will detect how many strata are available and
 will pick that many colors from rainbow_hcl.
 }
 \examples{
 library(survival)
-veteran \%>\% 
-    survfit(Surv(time, status) ~ celltype, data = .) \%>\% 
-   plot_survfit(cuminc = FALSE) \%>\% 
+library(dplyr)
+veteran \%>\%
+    survfit(Surv(time, status) ~ celltype, data = .) \%>\%
+   plot_survfit(cuminc = FALSE) \%>\%
    hcl_rainbow()
 }
 \author{

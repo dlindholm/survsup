@@ -15,7 +15,7 @@ plot_survfit(fit, lwd = 1, xmax = NULL, xbreaks = NULL, ylim = NULL,
 
 \item{xmax}{What is the upper limit of the X axis? The default will plot all data.}
 
-\item{xbreaks}{A numeric vector. Where should the breaks in the X axis be? The default will give ggplot's 
+\item{xbreaks}{A numeric vector. Where should the breaks in the X axis be? The default will give ggplot's
 default breaks.}
 
 \item{ylim}{A numeric vector of length 2. Which are the Y axis limits?}
@@ -46,21 +46,21 @@ Creates a Kaplan-Meier plot based on a survfit object
 
 library(survsup); library(ggplot2); library(dplyr); library(survival)
 
-retinopathy \%>\% 
-    survfit(Surv(futime, status) ~ trt, data = .) \%>\% 
+retinopathy \%>\%
+    survfit(Surv(futime, status) ~ trt, data = .) \%>\%
    plot_survfit()
 
-retinopathy \%>\% 
-    survfit(Surv(futime, status) ~ trt, data = .) \%>\% 
+retinopathy \%>\%
+    survfit(Surv(futime, status) ~ trt, data = .) \%>\%
    plot_survfit(ci = TRUE, cuminc = FALSE)
 
 # Since a ggplot object is returned,
 # you can tweak as you wish
-# (in this case with multiple labels): 
-mgus2 \%>\% 
-     survfit(Surv(futime, death) ~ sex, data = .) \%>\% 
+# (in this case with multiple labels):
+mgus2 \%>\%
+     survfit(Surv(futime, death) ~ sex, data = .) \%>\%
      plot_survfit(cuminc = FALSE) \%>\%
-     nar(flip = TRUE) \%>\% 
+     nar(flip = TRUE) \%>\%
      hcl_rainbow()+  # <--- Notice + sign here!
      labs(title = "This is an excessively long title",
      	subtitle = "This is a subtitle",

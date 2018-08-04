@@ -40,27 +40,27 @@ Returns a ggplot object
 }
 \description{
 Creates a numbers at risk table based on a ggplot object created by
-the plot_survfit function. It will add a table in the lower part of 
+the plot_survfit function. It will add a table in the lower part of
 the plot, with numbers where the X axis tick marks are situated.
 }
 \examples{
 library(survsup); library(ggplot2); library(dplyr); library(survival)
 
-retinopathy \%>\% 
-    survfit(Surv(futime, status) ~ trt, data = .) \%>\% 
-   plot_survfit() \%>\% 
+retinopathy \%>\%
+    survfit(Surv(futime, status) ~ trt, data = .) \%>\%
+   plot_survfit() \%>\%
 	   nar()
 
 # Without table flip:
-flchain \%>\% 
-    survfit(Surv(futime, death) ~ sex, data = .) \%>\% 
-   plot_survfit(cuminc = FALSE) \%>\% 
+flchain \%>\%
+    survfit(Surv(futime, death) ~ sex, data = .) \%>\%
+   plot_survfit(cuminc = FALSE) \%>\%
    nar()
 
 # With table flip:
-flchain \%>\% 
-    survfit(Surv(futime, death) ~ sex, data = .) \%>\% 
-   plot_survfit(cuminc = FALSE) \%>\% 
+flchain \%>\%
+    survfit(Surv(futime, death) ~ sex, data = .) \%>\%
+   plot_survfit(cuminc = FALSE) \%>\%
    nar(flip = TRUE)
 }
 \author{

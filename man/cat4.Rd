@@ -15,15 +15,16 @@ cat4(g, reverse = FALSE)
 Returns a ggplot object
 }
 \description{
-Convenience function to change the color scheme to 
-four colors: Green, blue, red, and yellow; i.e. 
+Convenience function to change the color scheme to
+four colors: Green, blue, red, and yellow; i.e.
 like the ski slopes but with yellow instead of black.
 }
 \examples{
 library(survival)
-veteran \%>\% 
-    survfit(Surv(time, status) ~ celltype, data = .) \%>\% 
-   plot_survfit(cuminc = FALSE) \%>\% 
+library(dplyr)
+veteran \%>\%
+    survfit(Surv(time, status) ~ celltype, data = .) \%>\%
+   plot_survfit(cuminc = FALSE) \%>\%
    cat4(reverse = TRUE)
 }
 \author{

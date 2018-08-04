@@ -15,16 +15,19 @@ skislopes(g, reverse = FALSE)
 Returns a ggplot object
 }
 \description{
-Convenience function to change the color scheme to 
-four colors: Green, blue, red, and black; i.e. 
+Convenience function to change the color scheme to
+four colors: Green, blue, red, and black; i.e.
 as ski slopes are classified.
 }
 \examples{
+\dontrun{
 library(survival)
-veteran \%>\% 
-    survfit(Surv(time, status) ~ celltype, data = .) \%>\% 
-   plot_survfit(cuminc = FALSE) \%>\% 
+library(dplyr)
+veteran \%>\%
+    survfit(Surv(time, status) ~ celltype, data = .) \%>\%
+   plot_survfit(cuminc = FALSE) \%>\%
    skislopes(reverse = TRUE)
+}
 }
 \author{
 Daniel Lindholm
