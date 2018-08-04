@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 The _survsup_ package provides straightforward R functions for plotting Kaplan-Meier curves with the inclusion of numbers at risk tables. Although other methods exist, they either do not fit my workflow well or produce quite ugly plots.
 
-This package is based upon _ggplot2_, which comes in handy in case you'd wish to tweak anything in the plot, since a ggplot object is returned. 
+This package is based upon _ggplot2_, which comes in handy in case you'd wish to tweak anything in the plot, since a ggplot object is returned.
 
 Furthermore, this package is very easy to use using the _pipe_ operator, see examples below.
 
@@ -37,7 +37,7 @@ library(survival)
 library(dplyr)
 
 
-fit <- survfit(Surv(time, status) ~ 1, data = lung) 
+fit <- survfit(Surv(time, status) ~ 1, data = lung)
 plot_survfit(fit)
 ```
 
@@ -45,7 +45,7 @@ As you will see later, it is even more convenient to use the _pipe_ operator (__
 
 ```{r, fig.height=6, fig.width=6}
 lung %>%
-  survfit(Surv(time, status) ~ 1, data = .) %>% 
+  survfit(Surv(time, status) ~ 1, data = .) %>%
   plot_survfit()
 ```
 
@@ -54,7 +54,7 @@ See that the plot by default plots the cumulative incidence? (this is the most c
 
 ```{r, fig.height=6, fig.width=6}
 lung %>%
-  survfit(Surv(time, status) ~ 1, data = .) %>% 
+  survfit(Surv(time, status) ~ 1, data = .) %>%
   plot_survfit(cuminc = FALSE)
 ```
 
@@ -62,7 +62,7 @@ Now let's see if the survival differs between men and women:
 
 ```{r, fig.height=6, fig.width=6}
 lung %>%
-  survfit(Surv(time, status) ~ sex, data = .) %>% 
+  survfit(Surv(time, status) ~ sex, data = .) %>%
   plot_survfit(cuminc = FALSE)
 ```
 
@@ -70,14 +70,14 @@ Well, maybe, but let's add the 95% confidence intervals!
 
 ```{r, fig.height=6, fig.width=6}
 lung %>%
-  survfit(Surv(time, status) ~ sex, data = .) %>% 
+  survfit(Surv(time, status) ~ sex, data = .) %>%
   plot_survfit(cuminc = FALSE, ci = TRUE)
 ```
 Now let's change the axis labels:
 
 ```{r, fig.height=6, fig.width=6}
 lung %>%
-  survfit(Surv(time, status) ~ sex, data = .) %>% 
+  survfit(Surv(time, status) ~ sex, data = .) %>%
   plot_survfit(cuminc = FALSE, ci = TRUE) + # <--- NOTE!
   labs(x = "Time (days)", y = "Survival (%)")
 ```
@@ -90,8 +90,8 @@ If we wish to add a number at risk table, we just put the function _nar_ into th
 
 ```{r, fig.height=6, fig.width=6}
 lung %>%
-  survfit(Surv(time, status) ~ sex, data = .) %>% 
-  plot_survfit(cuminc = FALSE) %>% 
+  survfit(Surv(time, status) ~ sex, data = .) %>%
+  plot_survfit(cuminc = FALSE) %>%
   nar()
 ```
 
@@ -99,8 +99,8 @@ Perhaps we want to change the font size in the numbers at risk table? Then we ju
 
 ```{r, fig.height=6, fig.width=6}
 lung %>%
-  survfit(Surv(time, status) ~ sex, data = .) %>% 
-  plot_survfit(cuminc = FALSE) %>% 
+  survfit(Surv(time, status) ~ sex, data = .) %>%
+  plot_survfit(cuminc = FALSE) %>%
   nar(size = 3)
 ```
 
@@ -112,8 +112,8 @@ Since we're dealing with ggplot objects it is very straightforward to change the
 
 ```{r, fig.height=6, fig.width=6}
 colon %>%
-  survfit(Surv(time, status) ~ rx, data = .) %>% 
-  plot_survfit() %>% 
+  survfit(Surv(time, status) ~ rx, data = .) %>%
+  plot_survfit() %>%
   nar() +
   scale_color_manual(values = c("darkorange", "steelblue", "darkred"))
 ```
@@ -122,9 +122,9 @@ We've also included a few convenience functions to get commonly used presets of 
 
 ```{r, fig.height=6, fig.width=6}
 colon %>%
-  survfit(Surv(time, status) ~ extent, data = .) %>% 
-  plot_survfit() %>% 
-  nar() %>% 
+  survfit(Surv(time, status) ~ extent, data = .) %>%
+  plot_survfit() %>%
+  nar() %>%
   skislopes()
 ```
 
@@ -132,29 +132,29 @@ You could, if you wanted to, reverse the order of the colors thus:
 
 ```{r, fig.height=6, fig.width=6}
 colon %>%
-  survfit(Surv(time, status) ~ extent, data = .) %>% 
-  plot_survfit() %>% 
-  nar() %>% 
+  survfit(Surv(time, status) ~ extent, data = .) %>%
+  plot_survfit() %>%
+  nar() %>%
   skislopes(reverse = TRUE)
 ```
 
-Another common color scheme is similar to the skislopes but with orange/yellow instead of black, called _cat4_ in this package: 
+Another common color scheme is similar to the skislopes but with orange/yellow instead of black, called _cat4_ in this package:
 
 ```{r, fig.height=6, fig.width=6}
 colon %>%
-  survfit(Surv(time, status) ~ extent, data = .) %>% 
-  plot_survfit() %>% 
-  nar() %>% 
+  survfit(Surv(time, status) ~ extent, data = .) %>%
+  plot_survfit() %>%
+  nar() %>%
   cat4()
 ```
 
-However, you'd probably don't want any color stick out too much. The _colorspace_ package (https://cran.r-project.org/web/packages/colorspace/) by Zeileis, Hornik, and Murrell provides a nice qualitative color palettes based on the HCL colors. We provide a convenience function, that provides colors for the number of strata based on the _rainbow\_hcl_ function. You have the options to tweak parameters such as chroma and luminance to taste. The convenience function is called _hcl\_rainbow_: 
+However, you'd probably don't want any color stick out too much. The _colorspace_ package (https://CRAN.r-project.org/package=colorspace) by Zeileis, Hornik, and Murrell provides a nice qualitative color palettes based on the HCL colors. We provide a convenience function, that provides colors for the number of strata based on the _rainbow\_hcl_ function. You have the options to tweak parameters such as chroma and luminance to taste. The convenience function is called _hcl\_rainbow_:
 
 ```{r, fig.height=6, fig.width=6}
 colon %>%
-  survfit(Surv(time, status) ~ extent, data = .) %>% 
-  plot_survfit() %>% 
-  nar() %>% 
+  survfit(Surv(time, status) ~ extent, data = .) %>%
+  plot_survfit() %>%
+  nar() %>%
   hcl_rainbow()
 ```
 
@@ -162,25 +162,25 @@ Like in the previous convenience functions, you could also easily reverse the or
 
 ```{r, fig.height=6, fig.width=6}
 colon %>%
-  survfit(Surv(time, status) ~ extent, data = .) %>% 
-  plot_survfit() %>% 
-  nar() %>% 
+  survfit(Surv(time, status) ~ extent, data = .) %>%
+  plot_survfit() %>%
+  nar() %>%
   hcl_rainbow(reverse = TRUE)
 ```
 
 ### Line width
 
-You could also tweak the width of the lines easily using the _lwd_ argument: 
+You could also tweak the width of the lines easily using the _lwd_ argument:
 
 ```{r, fig.height=6, fig.width=6}
 colon %>%
-  survfit(Surv(time, status) ~ extent, data = .) %>% 
+  survfit(Surv(time, status) ~ extent, data = .) %>%
   plot_survfit(lwd = 2)
 ```
 
 ```{r, fig.height=6, fig.width=6}
 colon %>%
-  survfit(Surv(time, status) ~ extent, data = .) %>% 
+  survfit(Surv(time, status) ~ extent, data = .) %>%
   plot_survfit(lwd = 0.5)
 ```
 
@@ -190,14 +190,14 @@ If you want to change the legend title to something more informative, use the _l
 
 ```{r, fig.height=6, fig.width=6}
 colon %>%
-  survfit(Surv(time, status) ~ extent, data = .) %>% 
+  survfit(Surv(time, status) ~ extent, data = .) %>%
   plot_survfit(legend.title = "Extent of disease")
 ```
 
 
 ### Axes and breaks
 
-By default, axis and axis breaks are determined by ggplot2 to represent the data optimally. However, you may have other demands, such that for instance locking the Y axis so that multiple plots will have the same range to allow for comparison, or you might be interested only in a shorter period of time than the full period under study. Furthermore, you might wish more or fewer timepoints at which the number at risk figures are shown. In the following passage, we will go through these tweaks. 
+By default, axis and axis breaks are determined by ggplot2 to represent the data optimally. However, you may have other demands, such that for instance locking the Y axis so that multiple plots will have the same range to allow for comparison, or you might be interested only in a shorter period of time than the full period under study. Furthermore, you might wish more or fewer timepoints at which the number at risk figures are shown. In the following passage, we will go through these tweaks.
 
 #### Changing Y axis limits
 
@@ -205,8 +205,8 @@ Say that you want your Y scale to go all the way from 0 to 100. This is easily a
 
 ```{r, fig.height=6, fig.width=6}
 colon %>%
-  survfit(Surv(time, status) ~ extent, data = .) %>% 
-  plot_survfit(ylim = c(0, 100)) %>% 
+  survfit(Surv(time, status) ~ extent, data = .) %>%
+  plot_survfit(ylim = c(0, 100)) %>%
   nar()
 ```
 
@@ -216,17 +216,17 @@ In this example, say that you're interested only up to the timepoint 2000:
 
 ```{r, fig.height=6, fig.width=6}
 colon %>%
-  survfit(Surv(time, status) ~ extent, data = .) %>% 
-  plot_survfit(xmax = 2000) %>% 
+  survfit(Surv(time, status) ~ extent, data = .) %>%
+  plot_survfit(xmax = 2000) %>%
   nar()
 ```
 
-Notice how the number at risk table was expanded to include numbers at risk at the new X axis breaks selected by ggplot. Perhaps you only want numbers at risk at, say, 0, 1000, 2000. Then we can use the _xbreaks_ argument: 
+Notice how the number at risk table was expanded to include numbers at risk at the new X axis breaks selected by ggplot. Perhaps you only want numbers at risk at, say, 0, 1000, 2000. Then we can use the _xbreaks_ argument:
 
 ```{r, fig.height=6, fig.width=6}
 colon %>%
-  survfit(Surv(time, status) ~ extent, data = .) %>% 
-  plot_survfit(xmax = 2000, xbreaks = c(0, 1000, 2000)) %>% 
+  survfit(Surv(time, status) ~ extent, data = .) %>%
+  plot_survfit(xmax = 2000, xbreaks = c(0, 1000, 2000)) %>%
   nar()
 ```
 
@@ -236,18 +236,18 @@ colon %>%
 Consider this figure:
 
 ```{r, fig.height=6, fig.width=6}
-colon %>% 
-  survfit(Surv(time, status) ~ sex, data = .) %>% 
-  plot_survfit() %>% 
+colon %>%
+  survfit(Surv(time, status) ~ sex, data = .) %>%
+  plot_survfit() %>%
   nar()
 ```
 
 Here you see that the red line is (ever so slightly) above the green line, whereas the green row in the numbers at risk table is above the red row. If you want to fix this, you can use the _flip_ argument as follows:
 
 ```{r, fig.height=6, fig.width=6}
-colon %>% 
-  survfit(Surv(time, status) ~ sex, data = .) %>% 
-  plot_survfit() %>% 
+colon %>%
+  survfit(Surv(time, status) ~ sex, data = .) %>%
+  plot_survfit() %>%
   nar(flip = TRUE)
 ```
 
@@ -258,16 +258,16 @@ Voila!
 Use the _size_ argument to change font size:
 
 ```{r, fig.height=6, fig.width=6}
-colon %>% 
-  survfit(Surv(time, status) ~ sex, data = .) %>% 
-  plot_survfit() %>% 
+colon %>%
+  survfit(Surv(time, status) ~ sex, data = .) %>%
+  plot_survfit() %>%
   nar(size = 5, flip = TRUE)
 ```
 
 ```{r, fig.height=6, fig.width=6}
-colon %>% 
-  survfit(Surv(time, status) ~ sex, data = .) %>% 
-  plot_survfit() %>% 
+colon %>%
+  survfit(Surv(time, status) ~ sex, data = .) %>%
+  plot_survfit() %>%
   nar(size = 2, flip = TRUE)
 ```
 
@@ -276,16 +276,16 @@ colon %>%
 The argument _y\_offset_ determines how far below the main plot the numbers at risk table will be. By default, this takes the value 0.05; but could be changed to taste:
 
 ```{r, fig.height=6, fig.width=6}
-colon %>% 
-  survfit(Surv(time, status) ~ sex, data = .) %>% 
-  plot_survfit() %>% 
+colon %>%
+  survfit(Surv(time, status) ~ sex, data = .) %>%
+  plot_survfit() %>%
   nar(y_offset = 0.1, flip = TRUE)
 ```
 
 ```{r, fig.height=6, fig.width=6}
-colon %>% 
-  survfit(Surv(time, status) ~ sex, data = .) %>% 
-  plot_survfit() %>% 
+colon %>%
+  survfit(Surv(time, status) ~ sex, data = .) %>%
+  plot_survfit() %>%
   nar(y_offset = 0.03, flip = TRUE)
 ```
 
@@ -294,24 +294,24 @@ colon %>%
 By default, a thin horizontal line separates the main plotting area from the numbers at risk table. This could be turned off:
 
 ```{r, fig.height=6, fig.width=6}
-colon %>% 
-  survfit(Surv(time, status) ~ sex, data = .) %>% 
-  plot_survfit() %>% 
+colon %>%
+  survfit(Surv(time, status) ~ sex, data = .) %>%
+  plot_survfit() %>%
   nar(separator = FALSE)
 ```
 
 You could also change some characteristics of the line, such as color and line width:
 
 ```{r, fig.height=6, fig.width=6}
-colon %>% 
-  survfit(Surv(time, status) ~ sex, data = .) %>% 
-  plot_survfit() %>% 
+colon %>%
+  survfit(Surv(time, status) ~ sex, data = .) %>%
+  plot_survfit() %>%
   nar(sep_color = "grey90", sep_lwd = 1.5)
 ```
 
 ## Combining multiple plots
 
-Perhaps you'd want to combine multiple plots. Enter _gridExtra_ (https://cran.r-project.org/web/packages/gridExtra/index.html)!
+Perhaps you'd want to combine multiple plots. Enter _gridExtra_ (https://CRAN.r-project.org/package=gridExtra)!
 
 ```{r}
 library(gridExtra)
@@ -321,15 +321,15 @@ Let's combine two plots:
 
 ```{r, fig.height=6, fig.width=10}
 p <- list(
-  p1 = colon %>% 
-    survfit(Surv(time, status) ~ sex, data = .) %>% 
-    plot_survfit(ylim = c(0, 100)) %>% 
+  p1 = colon %>%
+    survfit(Surv(time, status) ~ sex, data = .) %>%
+    plot_survfit(ylim = c(0, 100)) %>%
     nar() +
     labs(tag = "A"),
 
-  p2 = colon %>% 
-    survfit(Surv(time, status) ~ node4, data = .) %>% 
-    plot_survfit(ylim = c(0, 100)) %>% 
+  p2 = colon %>%
+    survfit(Surv(time, status) ~ node4, data = .) %>%
+    plot_survfit(ylim = c(0, 100)) %>%
     nar() +
     labs(tag = "B")
 )
@@ -343,38 +343,38 @@ _gridExtra_ provides ways to create even more complex plots:
 ```{r, fig.height=10, fig.width=9, out.width="90%"}
 # Store plots in a list
 p <- list(
-  p1 = colon %>% 
-    survfit(Surv(time, status) ~ 1, data = .) %>% 
+  p1 = colon %>%
+    survfit(Surv(time, status) ~ 1, data = .) %>%
     plot_survfit(ylim = c(0, 100)) +
     labs(tag = "A"),
 
-  p2 = colon %>% 
-    survfit(Surv(time, status) ~ rx, data = .) %>% 
-    plot_survfit(ylim = c(0, 100)) %>% 
+  p2 = colon %>%
+    survfit(Surv(time, status) ~ rx, data = .) %>%
+    plot_survfit(ylim = c(0, 100)) %>%
     nar(2, separator = FALSE) +
     labs(tag = "B"),
 
-  p3 = colon %>% 
-    survfit(Surv(time, status) ~ extent, data = .) %>% 
-    plot_survfit(ylim = c(0, 100)) %>% 
+  p3 = colon %>%
+    survfit(Surv(time, status) ~ extent, data = .) %>%
+    plot_survfit(ylim = c(0, 100)) %>%
     nar(2, separator = FALSE) +
     labs(tag = "C"),
 
-  p4 = colon %>% 
-    survfit(Surv(time, status) ~ sex, data = .) %>% 
-    plot_survfit(ylim = c(0, 100)) %>% 
+  p4 = colon %>%
+    survfit(Surv(time, status) ~ sex, data = .) %>%
+    plot_survfit(ylim = c(0, 100)) %>%
     nar(2, separator = FALSE) +
     labs(tag = "D"),
 
-  p5 = colon %>% 
-    survfit(Surv(time, status) ~ node4, data = .) %>% 
-    plot_survfit(ylim = c(0, 100)) %>% 
+  p5 = colon %>%
+    survfit(Surv(time, status) ~ node4, data = .) %>%
+    plot_survfit(ylim = c(0, 100)) %>%
     nar(2, separator = FALSE) +
     labs(tag = "E"),
 
-  p6 = colon %>% 
-    survfit(Surv(time, status) ~ surg, data = .) %>% 
-    plot_survfit(ylim = c(0, 100)) %>% 
+  p6 = colon %>%
+    survfit(Surv(time, status) ~ surg, data = .) %>%
+    plot_survfit(ylim = c(0, 100)) %>%
     nar(2, separator = FALSE) +
     labs(tag = "F")
 
@@ -395,8 +395,3 @@ And, of course, if you wanted to extract only one of your plots, you can easily 
 ```{r, fig.height=6, fig.width=6}
 p[["p3"]]
 ```
-
-
-
-
-
