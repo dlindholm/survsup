@@ -4,8 +4,8 @@
 \alias{hcl_rainbow}
 \title{Convenience function for the rainbow_hcl color scheme}
 \usage{
-hcl_rainbow(g, reverse = FALSE, c = 50, l = 70, start = 0, end = 360 *
-  (n - 1)/n)
+hcl_rainbow(g, reverse = FALSE, c = 50, l = 70, start = 0,
+  end = 360 * (n - 1)/n)
 }
 \arguments{
 \item{g}{ggplot object containing a Kaplan-Meier plot}

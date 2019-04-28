@@ -4,9 +4,10 @@
 \alias{plot_survfit}
 \title{Plot a survfit object}
 \usage{
-plot_survfit(fit, lwd = 1, xmax = NULL, xbreaks = NULL, ylim = NULL,
-  ci = FALSE, cuminc = TRUE, y_percent = TRUE,
-  split_legend_labels = TRUE, legend.title = NA, legend.position = "top")
+plot_survfit(fit, lwd = 1, xmax = NULL, xbreaks = NULL,
+  ylim = NULL, ci = FALSE, cuminc = TRUE, y_percent = TRUE,
+  split_legend_labels = TRUE, legend.title = NA,
+  legend.position = "top")
 }
 \arguments{
 \item{fit}{A survfit object that we should plot}

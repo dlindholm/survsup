@@ -5,8 +5,8 @@
 \title{Add a numbers at risk table to a Kaplan-Meier plot}
 \usage{
 nar(g, size = NA, x_offset = 0.02, y_offset = 0.05,
-  forced_height = NULL, flip = FALSE, separator = TRUE, sep_lwd = 0.2,
-  sep_color = "grey70")
+  forced_height = NULL, flip = FALSE, separator = TRUE,
+  sep_lwd = 0.2, sep_color = "grey70")
 }
 \arguments{
 \item{g}{a ggplot object to which a numbers at risk table should be added.}

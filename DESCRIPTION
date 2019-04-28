@@ -1,10 +1,11 @@
 Package: survsup
 Title: Plotting Survival Curves with Numbers at Risk Table
 Version: 0.0.1
-Authors@R: person("Daniel", "Lindholm", email = "daniel.lindholm@me.com", role = c("aut", "cre"))
+Author: Daniel Lindholm <daniel.lindholm@me.com>
+Maintainer: Daniel Lindholm <daniel.lindholm@me.com>
 Description: Implements functions to plot survival curves. Provides the capability to add numbers at risk tables, and allows for using the pipe operator to create more complex plots.
 Depends: R (>= 3.3.0)
-License: MIT + file LICENSE
+License: GPL-2
 Encoding: UTF-8
 URL: http://github.com/dlindholm/survsup
 BugReports: http://github.com/dlindholm/survsup/issues
@@ -17,7 +18,7 @@ Imports: stats,
     broom,
     colorspace,
     gridExtra
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr
